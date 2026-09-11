@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCA Sem 2 - Study Hub</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        h1 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 4px solid #0056b3;
+        }
+        .card h2 {
+            font-size: 1.2em;
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+        .chapter-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background-color: #eef6ff;
+            color: #0056b3;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #b8daff;
+            transition: background 0.2s;
+        }
+        .chapter-btn:hover {
+            background-color: #d2e9ff;
+        }
+        .loading {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>BCA Semester 2</h1>
+    <p class="subtitle">Study Notes & Chapter Summaries</p>
+
+    <div class="grid" id="subjects-container">
+        <!-- JavaScript will generate the cards here -->
+    </div>
+
+    <script>
+        // --- YOUR SUBJECT LIST ---
+        // Edit this array if you want to change subject names or folder names.
+        // "folder" is the name of the folder on GitHub where you put the HTML files.
+        const subjects = [
+            { name: "Database Management System", folder: "DBMS" },
+            { name: "Data Structures using C++ Lab", folder: "DS_Cpp_Lab" },
+        ];
+
+        // --- THE AUTO-UPDATE MAGIC ---
+        const numberWords = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+        const container = document.getElementById('subjects-container');
+
+        subjects.forEach(subject => {
+            // Create the card for the subject
+            const card = document.createElement('div');
+            card.className = 'card';
+            
+            const title = document.createElement('h2');
+            title.innerText = subject.name;
+            card.appendChild(title);
+
+            const loadingText = document.createElement('p');
+            loadingText.className = 'loading';
+            loadingText.innerText = 'Checking for chapters...';
+            card.appendChild(loadingText);
+
+            container.appendChild(card);
+
+            // Check for chapter files (chapter_one.html to chapter_twelve.html)
+            let chaptersFound = false;
+
+            numberWords.forEach(word => {
+                const filePath = `${subject.folder}/chapter_${word}.html`;
+                
+                // Send a silent request to see if the file exists
+                fetch(filePath, { method: 'HEAD' })
+                    .then(response => {
+                        if (response.ok) {
+                            chaptersFound = true;
+                            loadingText.style.display = 'none'; // Hide loading text
+                            
+                            // Create the button/link
+                            const link = document.createElement('a');
+                            link.href = filePath;
+                            link.className = 'chapter-btn';
+                            link.innerText = `Chapter ${word.charAt(0).toUpperCase() + word.slice(1)}`;
+                            card.appendChild(link);
+                        }
+                    })
+                    .catch(err => {
+                        // File doesn't exist, do nothing
+                    });
+            });
+        });
+    </script>
+
+</body>
+</html>
