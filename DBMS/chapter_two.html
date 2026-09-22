@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2: Database Systems - Summary</title>
+    <style>
+        /* Blue Theme CSS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e6f2ff; /* Very light blue background */
+            color: #003366; /* Dark blue text */
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
+            border-top: 5px solid #004080;
+        }
+        h1 {
+            color: #004080; /* Deep blue */
+            text-align: center;
+            border-bottom: 2px solid #0073e6;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #0059b3;
+            border-left: 4px solid #0073e6;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #0073e6;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .type-card {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .type-card h3 {
+            margin-top: 0;
+            color: #004080;
+        }
+        ul {
+            list-style-type: square;
+            color: #003366;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .glossary {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .glossary h2 {
+            color: #ffffff;
+            border-left: none;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 5px;
+        }
+        .glossary dt {
+            font-weight: bold;
+            color: #99ccff;
+            margin-top: 10px;
+        }
+        .glossary dd {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Database Systems (Unit 2) Summary</h1>
+        <p><strong>Course:</strong> DCA1208 - Database Management System | <strong>Semester:</strong> 2</p>
+        
+        <!-- Introduction -->
+        <h2>1. Introduction & Objectives</h2>
+        <p>A Database Management System (DBMS) is software that facilitates the creation, maintenance, and use of databases, ensuring data consistency, security, and concurrent access. This unit explores the various types of database systems to understand how data is organized, stored, and managed across different applications.</p>
+        <p><strong>Objectives:</strong></p>
+        <ul>
+            <li>Identify the Types of Database Systems</li>
+            <li>List the Advantages and Disadvantages of DBMS</li>
+            <li>Outline applications for different types of Database systems</li>
+        </ul>
+
+        <!-- Types of DB Systems -->
+        <h2>2. Types of Database Systems</h2>
+        <div class="type-card">
+            <h3>2.1 Hierarchical Databases</h3>
+            <p>Organizes data in a tree-like structure (parent-child relationships). Each child has a single parent, but a parent can have multiple children (1:Many). Fast for specific queries but rigid.</p>
+            <p><strong>Examples:</strong> IBM IMS, Windows Registry.</p>
+        </div>
+        <div class="type-card">
+            <h3>2.2 Network Databases</h3>
+            <p>Uses a graph-like structure where records can have multiple parents and children (Many:Many). More flexible than hierarchical but complex to manage.</p>
+            <p><strong>Examples:</strong> Integrated Data Store (IDS), Raima Database Manager.</p>
+        </div>
+        <div class="type-card">
+            <h3>2.3 Relational Database Management Systems (RDBMS)</h3>
+            <p>Organizes data into structured tables (rows and columns). Enforces schema, uses SQL, and follows ACID properties for reliable transactions.</p>
+            <p><strong>Examples:</strong> MySQL, PostgreSQL, Oracle, MS SQL Server.</p>
+        </div>
+        <div class="type-card">
+            <h3>2.4 Centralised Database Systems</h3>
+            <p>All data is stored and managed in a single location/server. Ensures data consistency and simplified management but faces scalability challenges and single-point-of-failure risks.</p>
+        </div>
+        <div class="type-card">
+            <h3>2.5 Distributed Databases</h3>
+            <p>Data is stored across multiple physical locations. Offers high availability, fault tolerance, and geographical distribution. Scales horizontally.</p>
+            <p><strong>Examples:</strong> Google Spanner, Amazon Aurora.</p>
+        </div>
+        <div class="type-card">
+            <h3>2.6 Object-Oriented Databases (OODBs)</h3>
+            <p>Stores data as objects (encapsulating attributes and methods). Supports complex data structures like inheritance and polymorphism, integrating closely with OOP languages.</p>
+            <p><strong>Examples:</strong> db4o, ObjectDB.</p>
+        </div>
+        <div class="type-card">
+            <h3>2.7 NoSQL Database Systems</h3>
+            <p>Designed for large-scale data and real-time web apps. Schema-flexible and horizontally scalable.</p>
+            <ul>
+                <li><strong>Document Stores:</strong> MongoDB (JSON-like)</li>
+                <li><strong>Key-Value Stores:</strong> Redis, DynamoDB</li>
+                <li><strong>Column Family Stores:</strong> Cassandra, HBase</li>
+                <li><strong>Graph Databases:</strong> Neo4j</li>
+            </ul>
+        </div>
+
+        <!-- Adv & Dis -->
+        <h2>3. Advantages & Disadvantages of DBMS</h2>
+        <div class="grid">
+            <div class="type-card" style="border-left: 5px solid #28a745;">
+                <h3>Advantages</h3>
+                <ul>
+                    <li><strong>Data Sharing:</strong> Controlled access for multiple users/apps.</li>
+                    <li><strong>Reduced Redundancy:</strong> Centralized control avoids data duplication.</li>
+                    <li><strong>Data Integrity:</strong> Ensures accuracy and consistency.</li>
+                    <li><strong>Data Security:</strong> Protects confidential data via authentication.</li>
+                    <li><strong>Conflict Resolution:</strong> DBA manages conflicting requirements.</li>
+                </ul>
+            </div>
+            <div class="type-card" style="border-left: 5px solid #dc3545;">
+                <h3>Disadvantages</h3>
+                <ul>
+                    <li><strong>Complexity & Cost:</strong> High initial cost and requires expertise.</li>
+                    <li><strong>Security Concerns:</strong> Centralized data is a prime target for breaches.</li>
+                    <li><strong>Data Integrity Risks:</strong> Vulnerable to hardware/human errors.</li>
+                    <li><strong>Backup Complexity:</strong> Complex recovery strategies needed.</li>
+                    <li><strong>Resource Consumption:</strong> High CPU and memory usage.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Glossary -->
+        <div class="glossary">
+            <h2>4. Key Terms (Glossary)</h2>
+            <dl>
+                <dt>DBMS</dt>
+                <dd>Software that facilitates the creation, maintenance, and use of databases.</dd>
+                <dt>ACID</dt>
+                <dd>Atomicity, Consistency, Isolation, Durability - ensures reliable transactions.</dd>
+                <dt>RDBMS</dt>
+                <dd>Relational Database Management System - organizes data into tables with rows/columns.</dd>
+                <dt>SQL</dt>
+                <dd>Structured Query Language - used for managing and manipulating relational databases.</dd>
+                <dt>Normalisation</dt>
+                <dd>Organizing data to reduce redundancy and improve integrity.</dd>
+                <dt>MongoDB</dt>
+                <dd>A NoSQL document-oriented database storing JSON-like data.</dd>
+                <dt>DBA</dt>
+                <dd>Database Administrator - manages, secures, and maintains databases.</dd>
+            </dl>
+        </div>
+    </div>
+</body>
+</html>
