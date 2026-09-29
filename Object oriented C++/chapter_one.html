@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: Introduction to OOP - Summary</title>
+    <style>
+        /* Blue Theme CSS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e6f2ff; /* Very light blue background */
+            color: #003366; /* Dark blue text */
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
+            border-top: 5px solid #004080;
+        }
+        h1 {
+            color: #004080; /* Deep blue */
+            text-align: center;
+            border-bottom: 2px solid #0073e6;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #0059b3;
+            border-left: 4px solid #0073e6;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #0073e6;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .type-card {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .type-card h3 {
+            margin-top: 0;
+            color: #004080;
+        }
+        ul {
+            list-style-type: square;
+            color: #003366;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #b3d9ff;
+            padding: 10px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #004080;
+            color: white;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f0f8ff;
+        }
+        .glossary {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .glossary h2 {
+            color: #ffffff;
+            border-left: none;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 5px;
+        }
+        .glossary dt {
+            font-weight: bold;
+            color: #99ccff;
+            margin-top: 10px;
+        }
+        .glossary dd {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Introduction to Object-Oriented Programming (Unit 1)</h1>
+        <p><strong>Course:</strong> DCA1210 - Object-Oriented Programming using C++ | <strong>Semester:</strong> 2</p>
+        
+        <!-- Introduction & Evolution -->
+        <h2>1. Evolution of Programming Methodologies</h2>
+        <p>Initially, software development relied on <strong>procedural programming</strong> (top-down approach, focusing on functions/actions). However, as software grew, procedural languages faced limitations: data was often globally accessible (risking accidental modification), debugging was hard, and the model didn't map well to real-world entities.</p>
+        <p>To overcome this, <strong>Object-Oriented Programming (OOP)</strong> was developed. In the 1970s and 1980s, Bjarne Stroustrup integrated OOP concepts into the C language, creating <strong>C++</strong> (a superset of C with features like classes and inheritance). OOP focuses on data rather than actions, organizing programs around "objects."</p>
+
+        <!-- Core Concepts -->
+        <h2>2. Core Concepts of OOP</h2>
+        <div class="grid">
+            <div class="type-card">
+                <h3>Objects</h3>
+                <p>Run-time entities that represent real-world items (e.g., a student, a car). They occupy memory, combine data (attributes), and have functions (methods) that operate on that data.</p>
+            </div>
+            <div class="type-card">
+                <h3>Classes</h3>
+                <p>A blueprint or user-defined data type used to create objects. It defines the structure (data) and behavior (functions) that all instances (objects) of that class will share.</p>
+            </div>
+            <div class="type-card">
+                <h3>Encapsulation & Data Hiding</h3>
+                <p>Bundling data and functions into a single unit (class). It protects an object's data from unintended external access (data hiding), allowing manipulation only through defined methods.</p>
+            </div>
+            <div class="type-card">
+                <h3>Data Abstraction</h3>
+                <p>Representing essential features while hiding complex implementation details. It focuses on <em>what</em> an object does rather than <em>how</em> it does it.</p>
+            </div>
+            <div class="type-card">
+                <h3>Inheritance</h3>
+                <p>Allows a new class (derived class) to acquire properties and behaviors from an existing class (base class). Promotes code reusability and creates class hierarchies.</p>
+            </div>
+            <div class="type-card">
+                <h3>Polymorphism</h3>
+                <p>Meaning "many forms." Allows a single function or operator to behave differently based on the context (e.g., function overloading, operator overloading).</p>
+            </div>
+            <div class="type-card">
+                <h3>Dynamic Binding</h3>
+                <p>Also known as late binding. The code to be executed in response to a function call is determined at run-time, providing flexibility.</p>
+            </div>
+            <div class="type-card">
+                <h3>Message Passing</h3>
+                <p>The process by which objects communicate and interact by sending and receiving messages (invoking methods on each other).</p>
+            </div>
+        </div>
+
+        <!-- Characteristics & Benefits -->
+        <h2>3. Characteristics & Benefits of OOP</h2>
+        <p>OOP follows a bottom-up approach, emphasizes data security, and ties functions closely to data. It partitions work into objects, making it easier to map real-world problems.</p>
+        <p><strong>Key Benefits:</strong></p>
+        <ul>
+            <li><strong>Reusability:</strong> Eliminates redundant code via inheritance.</li>
+            <li><strong>Modularity:</strong> Builds programs from standard, independent modules.</li>
+            <li><strong>Security:</strong> Protects sensitive data through encapsulation.</li>
+            <li><strong>Scalability:</strong> Easily extends from small to large systems.</li>
+            <li><strong>Maintainability:</strong> Simplifies communication and manages complexity.</li>
+        </ul>
+
+        <!-- C vs C++ -->
+        <h2>4. Difference Between C and C++</h2>
+        <table class="comparison-table">
+            <tr>
+                <th>Feature</th>
+                <th>C Language</th>
+                <th>C++ Language</th>
+            </tr>
+            <tr>
+                <td>Paradigm</td>
+                <td>Procedural Programming (Top-down)</td>
+                <td>Multi-paradigm: Procedural + OOP (Bottom-up)</td>
+            </tr>
+            <tr>
+                <td>Focus</td>
+                <td>Steps and procedures</td>
+                <td>Objects and data</td>
+            </tr>
+            <tr>
+                <td>I/O Operations</td>
+                <td><code>printf</code> and <code>scanf</code></td>
+                <td><code>cout</code> and <code>cin</code></td>
+            </tr>
+            <tr>
+                <td>Structures</td>
+                <td>Only contain data members</td>
+                <td>Can contain functions and access specifiers</td>
+            </tr>
+            <tr>
+                <td>Return in main()</td>
+                <td>Explicit <code>return 0;</code> recommended</td>
+                <td>Compiler automatically adds <code>return 0;</code></td>
+            </tr>
+        </table>
+
+        <!-- Applications -->
+        <h2>5. Applications of OOP</h2>
+        <p>OOP is widely popular for building large, complex, and maintainable systems. Major applications include:</p>
+        <ul>
+            <li><strong>Real-Time Systems:</strong> Quick processing of events.</li>
+            <li><strong>Simulation and Modeling:</strong> Representing complex systems.</li>
+            <li><strong>Object-Oriented Databases (OODBMS):</strong> Managing data as objects.</li>
+            <li><strong>AI and Expert Systems:</strong> Simulating human decision-making.</li>
+            <li><strong>Neural Networks & Parallel Programming:</strong> Handling complex data structures.</li>
+            <li><strong>CIM/CAM/CAD Systems:</strong> Designing and manufacturing industrial processes.</li>
+        </ul>
+
+        <!-- Glossary -->
+        <div class="glossary">
+            <h2>6. Key Terms (Glossary)</h2>
+            <dl>
+                <dt>OOP (Object-Oriented Programming)</dt>
+                <dd>A paradigm using objects to model real-world entities, addressing procedural limitations.</dd>
+                <dt>Class</dt>
+                <dd>A blueprint defining the data and behavior for objects.</dd>
+                <dt>Object</dt>
+                <dd>A self-contained entity (instance of a class) containing data and methods.</dd>
+                <dt>Encapsulation</dt>
+                <dd>Bundling data and methods into a class, restricting outside access.</dd>
+                <dt>Abstraction</dt>
+                <dd>Hiding implementation details and exposing only essential features.</dd>
+                <dt>Inheritance</dt>
+                <dd>Deriving a new class from an existing class to reuse code.</dd>
+                <dt>Polymorphism</dt>
+                <dd>The ability of a function to take multiple forms based on context.</dd>
+                <dt>Message Passing</dt>
+                <dd>The process of objects communicating by invoking each other's methods.</dd>
+            </dl>
+        </div>
+    </div>
+</body>
+</html>
